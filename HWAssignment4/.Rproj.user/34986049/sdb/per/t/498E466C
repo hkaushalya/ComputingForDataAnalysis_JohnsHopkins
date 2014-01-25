@@ -1,0 +1,16 @@
+{
+    "contents" : "#HW#4 part 2\n\nagecount <- function(age = NULL) \n{ \n  ## Check that \"age\" is non-NULL; else throw error\n  if (is.null(age)) {\n    stop('age cannot be null!')\n  }\n  \n  ## Read \"homicides.txt\" data file\n  homicides <- readLines('homicides.txt')\n\n  age.as.char<- as.character(age)\n  str <- paste(c(' ', age.as.char, ' years old'), collapse='')\n  cat('search string = ', str, '\\n')\n  ## Extract ages of victims; ignore records where no age is ## given\n  data <- grep(str, homicides, ignore.case = TRUE, value = T)\n  \n  num <- length(data)\n  cat('num = ', num, '\\n')\n  rm (homicides, age.as.char, str)\n  ## Return integer containing count of homicides for that age\n  return (num)\n}\n\n#agecount(12)",
+    "created" : 1382137770445.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4059801594",
+    "id" : "498E466C",
+    "lastKnownWriteTime" : 1382147179,
+    "path" : "~/Documents/Personal/Samantha/LearningMaterials/OnlineCourses_Coursera/ComputingForDataAnalysis_JohnsHopkins/HWAssignment4/agecount.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

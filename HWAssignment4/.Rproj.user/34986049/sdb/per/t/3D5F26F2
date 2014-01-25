@@ -1,0 +1,16 @@
+{
+    "contents" : "#HW#4\n#notes from video lecture\n\nhomicides<- readLines('homicides.txt')\nhomicides[1]\nhomicides[1000]\nlength(grep(\"iconHomicideShooting|icon_homicide_shooting\", homicides))\nlength(grep(\"Cause: shooting\", homicides))\nlength(grep(\"Cause: [Ss]hooting\", homicides)) #yield 1003 records\nlength(grep(\"[Ss]hooting\", homicides)) #yield 1005 records\n\ni <- grep(\"Cause: [Ss]hooting\", homicides) #yield 1003 records\nj <- grep(\"[Ss]hooting\", homicides) #yield 1005 records\nstr(i)\nstr(j)\nsetdiff(i,j) #returns '0'\nsetdiff(j,i) #returns '318' and '859'\n\nhomicides[859]\n\n#grep has a option to return the value of the matching index (instead of the index)\n",
+    "created" : 1381805633975.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2517907379",
+    "id" : "3D5F26F2",
+    "lastKnownWriteTime" : 1382063202,
+    "path" : "~/Documents/Personal/Samantha/LearningMaterials/OnlineCourses_Coursera/ComputingForDataAnalysis_JohnsHopkins/HWAssignment4/tryouts.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

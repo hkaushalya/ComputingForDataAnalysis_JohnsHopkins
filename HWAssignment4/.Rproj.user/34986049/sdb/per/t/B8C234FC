@@ -1,0 +1,16 @@
+{
+    "contents" : "#HW#4\nCAUSES <- c('asphyxiation', 'blunt force', 'other', 'shooting', 'stabbing', 'unknown')\nDEBUG <- F\n\ncount <- function(cause = NULL) { \n\n  ## Check that \"cause\" is non-NULL; else throw error \n  if ( is.null(cause))\n  {\n    stop('Cause cannot be NULL!')\n  }\n  ## Check that specific \"cause\" is allowed; else throw error\n  if ( !(cause %in% CAUSES) )\n  {\n    stop('Undefined cause!')\n  }\n  ## Read \"homicides.txt\" data file \n  \n  homicides <- readLines('homicides.txt')\n  #homicides <- readLines('shooting.txt')\n  \n  ## Extract causes of death \n  search.words <- c(\"Cause:\", as.character(cause))\n  #search.string <- paste(search.words, sep='')\n  search.string <- paste(search.words, collapse = ' ')\n  if (DEBUG) {\n    cause <- 'Cause: other'\n    search.words <- cause\n    searh.string <- 'Cause: other'\n  }\n  data <- 'NULL'\n  #cat('lenght of search.string (', search.string ,') = ', length(search.string), '\\n')\n  if (cause == 'other') {\n    data <- grep('Cause: other', homicides, ignore.case = TRUE, value = T)\n  } else if (cause == 'asphyxiation') {\n    data <- grep('Cause: asphyxiation', homicides, ignore.case = TRUE, value = T)    \n  } else if (cause == 'blunt force') {\n    data <- grep('Cause: blunt force', homicides, ignore.case = TRUE, value = T)    \n  } else if (cause == 'stabbing') {\n    data <- grep('Cause: stabbing', homicides, ignore.case = TRUE, value = T)    \n  } else if (cause == 'unknown') {\n    data <- grep('Cause: unknown', homicides, ignore.case = TRUE, value = T)    \n  } else if (cause == 'shooting') {\n    data <- grep('Cause: shooting', homicides, ignore.case = TRUE, value = T)    \n } else {\n  \n   stop('Undefined cause requested!')\n  }\n    \n  \n  #print(head(data))\n  num.items <- length(data)\n  cat('Number of items for', cause, ' = ' , num.items ,'\\n')\n  #cat(data, file='shooting_from_r.txt', sep = '\\n')\n  ## Return integer containing count of homicides for that cause\n  rm(data, search.words, search.string, homicides)\n  return (num.items)\n}\n\n\n#count ('other')\n#count ('shooting')\nprint(sum(sapply(CAUSES, FUN=count)))\n",
+    "created" : 1382063206295.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1707264790",
+    "id" : "B8C234FC",
+    "lastKnownWriteTime" : 1382137616,
+    "path" : "~/Documents/Personal/Samantha/LearningMaterials/OnlineCourses_Coursera/ComputingForDataAnalysis_JohnsHopkins/HWAssignment4/count.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
